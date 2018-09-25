@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form method="post">
+<form action="/signup" method="post">
 	<table>
 		<tr>
 			<td>
@@ -39,7 +39,7 @@
 	<input type="submit" value="Submit" />
 </form>
 
-{% if error %}
+{% if empty %}
   <p class='error'>{{ error }}</p>
 {% endif %}
 
