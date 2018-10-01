@@ -8,9 +8,18 @@
 				<label for="username">Username</label>
 			</td>
 			<td>
-				<input name="username" type="text" />
+				<input name="username" type="text" value="{{username}}" />
 			</td>
 		</tr>
+
+		{% if error_username %}
+		<tr>
+			<td>
+				<span class="error">{{error_username}}</span>
+			</td>
+		</tr>
+		{% endif %}
+
 		<tr>
 			<td>
 				<label for="password">Password</label>
@@ -19,6 +28,15 @@
 				<input name="password" type="password" />
 			</td>
 		</tr>
+
+		{% if error_password %}
+		<tr>
+			<td>
+				<span class="error">{{error_password}}</span>
+			</td>
+		</tr>
+		{% endif %}
+
 		<tr>
 			<td>
 				<label for="verify-password">Verify Password</label>
@@ -27,19 +45,37 @@
 				<input name="verify-password" type="password" />
 			</td>
 		</tr>
+
+		{% if error_verify_password %}
+		<tr>
+			<td>
+				<span class="error">{{error_verify_password}}</span>
+			</td>
+		</tr>
+		{% endif %}
+
 		<tr>
 			<td>
 				<label for="email">Email (optional)</label>
 			</td>
 			<td>
-				<input name="email" type="text" />
+				<input name="email" type="text" value="{{email}}" />
 			</td>
 		</tr>
+
+		{% if error_email %}
+		<tr>
+			<td>
+				<span class="error">{{error_email}}</span>
+			</td>
+		</tr>
+		{% endif %}
+
 	</table>
 	<input type="submit" value="Submit" />
 </form>
 
-{% if empty %}
+{% if error %}
   <p class='error'>{{ error }}</p>
 {% endif %}
 
