@@ -13,8 +13,13 @@ def index():
 	error_verify_password = request.args.get("error_verify_password")
 	error_email = request.args.get("error_email")
 	error = request.args.get("error")
-	username = request.args.get("username")
-	email = request.args.get("email")
+	# check to see if username and email exist from errors
+	username = ''
+	email = ''
+	if request.args.get("username") != None:
+		username = request.args.get("username")
+	if request.args.get("email") != None:
+		email = request.args.get("email")
 	return render_template('signup_form.html',
 		error_username=error_username and cgi.escape(error_username, quote=True),
 		error_password=error_password and cgi.escape(error_password, quote=True),
